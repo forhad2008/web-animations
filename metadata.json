@@ -1,6 +1,6 @@
 {
-  "name": "AetherMotion - Web Background Animations",
-  "description": "Interactive gallery and studio for modern website background animations featuring Liquid Metal Chrome, Iridescent Shaders, Aurora, Quantum Particles, Cyber Grids, and exportable code.",
+  "name": "AetherMotion - Background Animation Collection",
+  "description": "AetherMotion Collection by Abdullah — 22 production-ready WebGL Shaders and Canvas 2D background animations with live controls and 1-click code exports.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -51,10 +51,12 @@ void main() {
     float terrain = noise(vec2(x * 0.3, y * 0.3)) * 0.4 * u_distortion;
     x += terrain;
 
-    // Grid coordinates
-    vec2 grid = abs(fract(vec2(x, y) - 0.5) - 0.5) / fwidth(vec2(x, y));
-    float line = min(grid.x, grid.y);
-    float c = 1.0 - min(line, 1.0);
+    // Smooth Anti-Aliased Grid Lines (GLSL 1.0 compatible without extensions)
+    vec2 gridFract = abs(fract(vec2(x, y)) - 0.5);
+    float lineWidth = 0.05 + 0.02 * min(z * 0.1, 1.0);
+    float lineX = smoothstep(lineWidth, 0.0, gridFract.x);
+    float lineY = smoothstep(lineWidth, 0.0, gridFract.y);
+    float c = max(lineX, lineY);
 
     // Fog / depth fading towards horizon
     float depthFade = exp(-z * 0.12);
